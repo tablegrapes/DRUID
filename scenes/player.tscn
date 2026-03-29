@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://v2j7j5na5t7r" path="res://scenes/villager.tscn" id="2_sweqy"]
 [ext_resource type="Script" uid="uid://wyekcktlbaqu" path="res://scripts/player.gd" id="3_hqtel"]
 [ext_resource type="PackedScene" uid="uid://c8dvin3n17yqa" path="res://scenes/healthbar.tscn" id="4_healthbar"]
+[ext_resource type="Texture2D" uid="uid://bvbe3hlbyeur6" path="res://assets/generated/druid_player_frame_0_1774804671.png" id="5_qlg0r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 
@@ -31,7 +32,7 @@ mushroom_scene = ExtResource("2_hqtel")
 health_bar_scene = ExtResource("4_healthbar")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=438030292]
-region_enabled = true
+texture = ExtResource("5_qlg0r")
 region_rect = Rect2(280, 120, 64, 72)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1651228831]
