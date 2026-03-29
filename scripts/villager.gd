@@ -14,6 +14,9 @@ var DEBUG = true
 var health_bar
 var last_attack_time: float = -100.0
 
+var is_snared: bool = false
+var snare_timer: float = 0.0
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	player = get_tree().get_first_node_in_group("player")
@@ -28,6 +31,12 @@ func _ready():
 	health_bar.set_health(health)
 
 func _physics_process(delta):
+	if is_snared:
+		snare_timer -= delta
+		if snare_timer <= 0:
+			is_snared = false
+		return # Stop moving while snared
+
 	if player == null:
 		return
 
@@ -74,3 +83,7 @@ func die():
 		GameManager.add_kill()
 		GameManager.add_experience(experience)
 	queue_free()
+
+func snare(duration: float):
+	is_snared = true
+	snare_timer = duration

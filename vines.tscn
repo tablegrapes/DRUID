@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c6n4s16dx2lkf"]
+
+[ext_resource type="Script" uid="uid://b80kbs2c0poru" path="res://scripts/vines.gd" id="1_vines_script"]
+[ext_resource type="Texture2D" uid="uid://bj5jsogk03vty" path="res://assets/generated/entangling_vines_frame_0_1774819386.png" id="2_vines_texture"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vines"]
+radius = 80.0
+
+[node name="Vines" type="Node2D" unique_id=1323107175]
+script = ExtResource("1_vines_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1088751968]
+z_index = -1
+texture = ExtResource("2_vines_texture")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=677159513]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=520456012]
+shape = SubResource("CircleShape2D_vines")

@@ -11,6 +11,7 @@ signal died
 @export var max_health: int = 100
 @export var health: int = max_health
 @export var health_bar_scene: PackedScene
+@export var vines_scene: PackedScene
 
 var is_casting: bool = false
 var health_bar
@@ -75,9 +76,11 @@ func _physics_process(delta):
 	# Move the character with collision
 	move_and_slide()  # velocity is read from the CharacterBody2D.velocity property
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cast_ability"):
 		spawn_mushroom()
+	elif event.is_action_pressed("cast_ability_2"):
+		cast_entangling_vines()
 
 func check_for_respawn():
 	if is_spawning_wave:
@@ -120,6 +123,29 @@ func spawn_mushroom():
 	mushroom.global_position = mouse_pos
 
 	get_parent().add_child(mushroom)
+	
+	is_casting = false
+
+func cast_entangling_vines():
+	if is_casting:
+		return
+	
+	var cast_time = 0.5
+	is_casting = true
+	cast_bar.value = 100.0
+	cast_bar.visible = true
+	
+	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_STOP)
+	tween.tween_property(cast_bar, "value", 0.0, cast_time)
+	
+	await tween.finished
+	
+	cast_bar.visible = false
+	
+	if vines_scene:
+		var vines = vines_scene.instantiate()
+		vines.global_position = global_position
+		get_parent().add_child(vines)
 	
 	is_casting = false
 

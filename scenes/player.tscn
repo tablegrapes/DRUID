@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://wyekcktlbaqu" path="res://scripts/player.gd" id="3_hqtel"]
 [ext_resource type="PackedScene" uid="uid://c8dvin3n17yqa" path="res://scenes/healthbar.tscn" id="4_healthbar"]
 [ext_resource type="Texture2D" uid="uid://c737sr238dejf" path="res://assets/generated/druid_humanoid_player_frame_0_1774805208.png" id="5_qlg0r"]
+[ext_resource type="PackedScene" path="res://vines.tscn" id="6_vines"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
+radius = 16.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
@@ -30,6 +32,7 @@ script = ExtResource("3_hqtel")
 villager_scene = ExtResource("2_sweqy")
 mushroom_scene = ExtResource("2_hqtel")
 health_bar_scene = ExtResource("4_healthbar")
+vines_scene = ExtResource("6_vines")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=438030292]
 scale = Vector2(4, 4)
