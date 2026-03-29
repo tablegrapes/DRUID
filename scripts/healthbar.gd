@@ -10,7 +10,7 @@ func _ready():
 	current_health = max_health
 	bar.max_value = max_health
 	bar.value = current_health
-	bar.position = Vector2(-bar.size.x / 2, -40)
+	bar.position = Vector2(-bar.size.x / 2, -70)
 
 func set_health(value: int):
 	current_health = clamp(value, 0, max_health)

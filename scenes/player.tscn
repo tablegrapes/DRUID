@@ -32,6 +32,7 @@ mushroom_scene = ExtResource("2_hqtel")
 health_bar_scene = ExtResource("4_healthbar")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=438030292]
+scale = Vector2(4, 4)
 texture = ExtResource("5_qlg0r")
 region_rect = Rect2(280, 120, 64, 72)
 
