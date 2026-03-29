@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://v2j7j5na5t7r"]
+
+[ext_resource type="Script" uid="uid://bfq1x70lgcjou" path="res://villager.gd" id="1_vucva"]
+[ext_resource type="PackedScene" uid="uid://c8dvin3n17yqa" path="res://healthbar.tscn" id="2_kyemj"]
+[ext_resource type="Texture2D" uid="uid://ccyxgy7q4vb0" path="res://Free Sample/Torch_Wall_01.png" id="2_sbtgs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vucva"]
+radius = 30.0
+
+[node name="Node2D" type="Node2D" unique_id=1361291646]
+
+[node name="Villager" type="CharacterBody2D" parent="." unique_id=1395392932 groups=["enemies"]]
+script = ExtResource("1_vucva")
+health_bar_scene = ExtResource("2_kyemj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Villager" unique_id=1767015915]
+texture = ExtResource("2_sbtgs")
+region_enabled = true
+region_rect = Rect2(208, 24, 64, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villager" unique_id=1730184824]
+shape = SubResource("CircleShape2D_vucva")

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c8dvin3n17yqa"]
+
+[ext_resource type="Script" uid="uid://d0uy2kg1barmg" path="res://healthbar.gd" id="1_iywrq"]
+
+[sub_resource type="Gradient" id="Gradient_iywrq"]
+colors = PackedColorArray(0, 0, 0, 1, 0.29803923, 0.29803923, 0.29803923, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vii3e"]
+gradient = SubResource("Gradient_iywrq")
+height = 8
+
+[sub_resource type="Gradient" id="Gradient_bq16f"]
+offsets = PackedFloat32Array(0, 0.02902156)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3uge5"]
+gradient = SubResource("Gradient_bq16f")
+height = 8
+
+[node name="HealthBar" type="Node2D" unique_id=820656294]
+script = ExtResource("1_iywrq")
+
+[node name="Bar" type="TextureProgressBar" parent="." unique_id=1712137533]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = SubResource("GradientTexture2D_vii3e")
+texture_progress = SubResource("GradientTexture2D_3uge5")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bei8xwiylvhlj"]
+
+[ext_resource type="Script" uid="uid://bct8pa0om3632" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b654hddxcu6dq" path="res://player.tscn" id="4_272bh"]
+
+[node name="Main" type="Node2D" unique_id=223823420]
+script = ExtResource("1_0xm2m")
+
+[node name="Player" parent="." unique_id=1595572744 instance=ExtResource("4_272bh")]
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1241408762]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu" unique_id=502354084]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseMenu/CenterContainer" unique_id=1072800849]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "PAUSED"
