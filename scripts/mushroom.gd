@@ -8,7 +8,7 @@ extends Node2D
 
 var DEBUG = true
 @export var DAMAGE = 9
-@export var DURATION: float = 5.0
+@export var DURATION: float = 1.0
 
 var target_scale: Vector2
 var initial_scale: Vector2

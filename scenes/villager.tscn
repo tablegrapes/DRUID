@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://6cxaitvvyktp" path="res://scripts/villager.gd" id="1_vucva"]
 [ext_resource type="PackedScene" uid="uid://c8dvin3n17yqa" path="res://scenes/healthbar.tscn" id="2_kyemj"]
-[ext_resource type="Texture2D" uid="uid://ccyxgy7q4vb0" path="res://Free Sample/Torch_Wall_01.png" id="2_sbtgs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vucva"]
 radius = 30.0
@@ -14,7 +13,6 @@ script = ExtResource("1_vucva")
 health_bar_scene = ExtResource("2_kyemj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Villager" unique_id=1767015915]
-texture = ExtResource("2_sbtgs")
 region_enabled = true
 region_rect = Rect2(208, 24, 64, 56)
 
