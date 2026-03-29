@@ -23,6 +23,7 @@ func _input(event: InputEvent) -> void:
 		if not game_started:
 			start_game()
 		elif player_dead:
+			GameManager.reset_kills()
 			get_tree().paused = false
 			get_tree().reload_current_scene()
 		else:

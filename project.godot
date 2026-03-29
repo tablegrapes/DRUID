@@ -15,6 +15,10 @@ run/main_scene="uid://cdnd7p106d0y7"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://scripts/game_manager.gd"
+
 [global_group]
 
 mushrooms=""

@@ -69,4 +69,6 @@ func take_damage(amount):
 
 func die():
 	print("Villager died 💀")
+	if GameManager:
+		GameManager.add_kill()
 	queue_free()
