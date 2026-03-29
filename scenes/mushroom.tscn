@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2p8nigbg2amw"]
 
-[ext_resource type="Texture2D" uid="uid://nj7p63int3hb" path="res://assets/mushroom_paint.png" id="1_gvsd5"]
+[ext_resource type="Texture2D" uid="uid://jyh7mpo70i5b" path="res://assets/generated/mushroom_no_bg_frame_0_1774802284.png" id="1_gvsd5"]
 [ext_resource type="Script" uid="uid://dsogercphl6pv" path="res://scripts/mushroom.gd" id="1_ke5i0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ke5i0"]
@@ -16,6 +16,7 @@ bg_color = Color(1, 0.7411765, 0.5137255, 0.78431374)
 script = ExtResource("1_ke5i0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1515878956]
+scale = Vector2(4, 4)
 texture = ExtResource("1_gvsd5")
 
 [node name="Timer" type="Timer" parent="." unique_id=1020924071]
