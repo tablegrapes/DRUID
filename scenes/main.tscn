@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://weir82lu5axr" path="res://scripts/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b654hddxcu6dq" path="res://scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" path="res://ui/kill_counter.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://ui/xp_counter.tscn" id="4_xp_hud"]
 
 [node name="main" type="Node2D" unique_id=223823420]
 script = ExtResource("1_0xm2m")
@@ -10,6 +11,8 @@ script = ExtResource("1_0xm2m")
 [node name="HUD" type="CanvasLayer" parent="." unique_id=9108065]
 
 [node name="KillCounter" parent="HUD" unique_id=210317253 instance=ExtResource("3_hud")]
+
+[node name="XPCounter" parent="HUD" unique_id=210317254 instance=ExtResource("4_xp_hud")]
 
 [node name="Player" parent="." unique_id=1595572744 instance=ExtResource("2_h2yge")]
 

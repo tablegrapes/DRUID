@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var health_bar_scene: PackedScene
 @export var attack_damage: int = 45
 @export var attack_cooldown: float = 1.0
+@export var experience: int = 8
 
 var player = null
 var DEBUG = true
@@ -71,4 +72,5 @@ func die():
 	print("Villager died 💀")
 	if GameManager:
 		GameManager.add_kill()
+		GameManager.add_experience(experience)
 	queue_free()
