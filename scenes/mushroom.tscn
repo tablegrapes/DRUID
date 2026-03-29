@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://2p8nigbg2amw"]
 
 [ext_resource type="Texture2D" uid="uid://br7or2w2d7j04" path="res://icon.svg" id="1_gvsd5"]
-[ext_resource type="Script" uid="uid://iwmqnvt6ejes" path="res://mushroom.gd" id="1_ke5i0"]
+[ext_resource type="Script" uid="uid://dsogercphl6pv" path="res://scripts/mushroom.gd" id="1_ke5i0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ke5i0"]
 radius = 50.0

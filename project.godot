@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DRUID"
-run/main_scene="uid://dofmmq677nydg"
+run/main_scene="uid://cdnd7p106d0y7"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
