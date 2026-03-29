@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bei8xwiylvhlj"]
+[gd_scene format=3 uid="uid://dofmmq677nydg"]
 
 [ext_resource type="Script" uid="uid://bct8pa0om3632" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b654hddxcu6dq" path="res://player.tscn" id="4_272bh"]
@@ -6,7 +6,8 @@
 [node name="Main" type="Node2D" unique_id=223823420]
 script = ExtResource("1_0xm2m")
 
-[node name="Player" parent="." unique_id=1595572744 instance=ExtResource("4_272bh")]
+[node name="Player" type="Node2D" parent="." unique_id=1595572744 instance=ExtResource("4_272bh")]
+metadata/_edit_horizontal_guides_ = [-1542.0]
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1241408762]
 visible = false
