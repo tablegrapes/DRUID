@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const DEBUG: bool = true
+
 signal died
 
 @export var villager_scene: PackedScene
@@ -30,6 +32,11 @@ func _ready():
 		add_child(health_bar)
 		health_bar.set_max_health(max_health)
 		health_bar.set_health(health)
+	
+	if DEBUG:
+		$Sprite2D.show_behind_parent = true
+	
+	queue_redraw()
 
 func take_damage(amount: int):
 	health -= amount
@@ -162,3 +169,9 @@ func spawn_villager():
 	villager.global_position = spawn_position
 
 	get_parent().add_child(villager)
+
+func _draw() -> void:
+	if DEBUG: # show debug radius
+		var collision_shape = $CollisionShape2D.shape
+		if collision_shape is CircleShape2D:
+			draw_arc(Vector2.ZERO, collision_shape.radius, 0, TAU, 64, Color.CYAN, 2.0)

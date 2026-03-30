@@ -2,7 +2,7 @@ extends Node2D
 
 @export var damage: int = 2
 @export var snare_duration: float = 2.0
-@export var radius: float = 160.0
+@export var radius: float = 80.0
 @export var lifetime: float = 2.5
 
 @onready var area_2d: Area2D = $Area2D
