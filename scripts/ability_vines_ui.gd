@@ -58,10 +58,35 @@ func _update_tooltip() -> void:
 				z = player_instance.vines_cast_time
 			player_instance.free()
 	
-	var tooltip_format = "Entangling Vines -- Vines sprout in all directions from the Druid, preventing enemies from moving for %s seconds, and dealing %s damage. The vines last for %s seconds. Cast Time: %s seconds"
+	var tooltip_format = "[b]Entangling Vines[/b]\n\nVines sprout in all directions from the Druid, preventing enemies from moving for [color=yellow]%s[/color] seconds, and dealing [color=red]%s[/color] damage. The vines last for [color=green]%s[/color] seconds.\n\n[i]Cast Time: %s seconds[/i]"
 	tooltip_text = tooltip_format % [str(w), str(x), str(y), str(z)]
 	
 	print("AbilityVinesUI: Tooltip updated: ", tooltip_text)
+
+func _make_custom_tooltip(for_text: String) -> Control:
+	var label = RichTextLabel.new()
+	label.bbcode_enabled = true
+	label.text = for_text
+	label.fit_content = true
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.custom_minimum_size = Vector2(300, 0)
+	
+	var container = PanelContainer.new()
+	container.add_child(label)
+	
+	# Apply some basic styling to make it look like a tooltip
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.05, 0.05, 0.05, 0.95)
+	style.border_width_left = 1
+	style.border_width_top = 1
+	style.border_width_right = 1
+	style.border_width_bottom = 1
+	style.border_color = Color(0.3, 0.3, 0.3)
+	style.set_corner_radius_all(4)
+	style.set_content_margin_all(8)
+	container.add_theme_stylebox_override("panel", style)
+	
+	return container
 
 func _on_level_up(new_level: int) -> void:
 	if new_level >= 2:
