@@ -87,3 +87,9 @@ func die():
 func snare(duration: float):
 	is_snared = true
 	snare_timer = duration
+
+func _draw() -> void:
+	if DEBUG: # show debug radius
+		var collision_shape = $CollisionShape2D.shape
+		if collision_shape is CircleShape2D:
+			draw_arc(Vector2.ZERO, collision_shape.radius, 0, TAU, 64, Color.CYAN, 2.0)

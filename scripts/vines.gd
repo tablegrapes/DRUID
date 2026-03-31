@@ -1,5 +1,7 @@
 extends Node2D
 
+const DEBUG: bool = true
+
 @export var damage: int = 2
 @export var snare_duration: float = 2.0
 @export var radius: float = 80.0
@@ -52,3 +54,8 @@ func _apply_effect(body: Node2D) -> void:
 			body.snare(snare_duration)
 		if body.has_method("take_damage"):
 			body.take_damage(damage)
+
+func _draw() -> void:
+	if DEBUG: # show debug radius
+		if collision_shape and collision_shape.shape is CircleShape2D:
+			draw_arc(Vector2.ZERO, collision_shape.shape.radius, 0, TAU, 64, Color.CYAN, 2.0)
