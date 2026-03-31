@@ -3,7 +3,8 @@ extends CharacterBody2D
 const DEBUG: bool = true
 
 signal died
-signal experience_changed(new_experience: int)
+signal experience_changed(current_experience: int, next_level_experience: int)
+signal level_up(new_level: int)
 
 @export var villager_scene: PackedScene
 @export var spawn_min_radius: float = 150.0
@@ -16,10 +17,9 @@ signal experience_changed(new_experience: int)
 @export var health_bar_scene: PackedScene
 @export var vines_scene: PackedScene
 
-var experience: int = 0:
-	set(value):
-		experience = value
-		experience_changed.emit(experience)
+var level: int = 1
+var experience: int = 0
+var experience_to_next_level: int = 100
 
 var is_casting: bool = false
 var health_bar
@@ -61,6 +61,17 @@ func take_damage(amount: int):
 
 func add_experience(amount: int) -> void:
 	experience += amount
+	while experience >= experience_to_next_level:
+		level_up_player()
+	experience_changed.emit(experience, experience_to_next_level)
+
+func level_up_player() -> void:
+	experience -= experience_to_next_level
+	level += 1
+	# Simple exponential scaling for next level
+	experience_to_next_level = int(experience_to_next_level * 1.2)
+	print("Leveled up to level ", level)
+	level_up.emit(level)
 
 func die():
 	print("Player died!")
@@ -95,7 +106,7 @@ func _physics_process(delta):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cast_ability"):
 		spawn_mushroom()
-	elif event.is_action_pressed("cast_ability_2"):
+	elif event.is_action_pressed("cast_ability_2") and level >= 2:
 		cast_entangling_vines()
 
 func check_for_respawn():
