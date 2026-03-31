@@ -81,7 +81,8 @@ func die():
 	print("Villager died 💀")
 	if GameManager:
 		GameManager.add_kill()
-		GameManager.add_experience(experience)
+	if player and player.has_method("add_experience"):
+		player.add_experience(experience)
 	queue_free()
 
 func snare(duration: float):

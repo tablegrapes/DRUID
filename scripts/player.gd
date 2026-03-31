@@ -3,6 +3,7 @@ extends CharacterBody2D
 const DEBUG: bool = true
 
 signal died
+signal experience_changed(new_experience: int)
 
 @export var villager_scene: PackedScene
 @export var spawn_min_radius: float = 150.0
@@ -14,6 +15,11 @@ signal died
 @export var health: int = max_health
 @export var health_bar_scene: PackedScene
 @export var vines_scene: PackedScene
+
+var experience: int = 0:
+	set(value):
+		experience = value
+		experience_changed.emit(experience)
 
 var is_casting: bool = false
 var health_bar
@@ -52,6 +58,9 @@ func take_damage(amount: int):
 	
 	if health <= 0:
 		die()
+
+func add_experience(amount: int) -> void:
+	experience += amount
 
 func die():
 	print("Player died!")
