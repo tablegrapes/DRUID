@@ -6,7 +6,7 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @onready var collision_shape = $ExplosionArea/CollisionShape2D
 
-var DEBUG = true
+const DEBUG: bool = true
 @export var DAMAGE = 9
 @export var DURATION: float = 1.0
 
@@ -63,3 +63,8 @@ func explode():
 				body.take_damage(DAMAGE)
 
 	queue_free()
+
+func _draw() -> void:
+	if DEBUG: # show debug radius
+		if collision_shape and collision_shape.shape is CircleShape2D:
+			draw_arc(Vector2.ZERO, collision_shape.shape.radius, 0, TAU, 64, Color.CYAN, 2.0)
