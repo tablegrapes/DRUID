@@ -16,10 +16,11 @@ signal level_up(new_level: int)
 @export var health: int = max_health
 @export var health_bar_scene: PackedScene
 @export var vines_scene: PackedScene
+@export var vines_cast_time: float = 0.5
 
 var level: int = 1
 var experience: int = 0
-var experience_to_next_level: int = 100
+var experience_to_next_level: int = 10
 
 var is_casting: bool = false
 var health_bar
@@ -130,13 +131,13 @@ func spawn_mushroom():
 	if is_casting:
 		return
 		
-	var cast_time = 0.33
+	var mushroom_cast_time = 0.33
 	is_casting = true
 	cast_bar.value = 100.0
 	cast_bar.visible = true
 	
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_STOP)
-	tween.tween_property(cast_bar, "value", 0.0, cast_time)
+	tween.tween_property(cast_bar, "value", 0.0, mushroom_cast_time)
 	
 	await tween.finished
 	
@@ -157,13 +158,12 @@ func cast_entangling_vines():
 	if is_casting:
 		return
 	
-	var cast_time = 0.5
 	is_casting = true
 	cast_bar.value = 100.0
 	cast_bar.visible = true
 	
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_STOP)
-	tween.tween_property(cast_bar, "value", 0.0, cast_time)
+	tween.tween_property(cast_bar, "value", 0.0, vines_cast_time)
 	
 	await tween.finished
 	

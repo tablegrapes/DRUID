@@ -1,3 +1,4 @@
+class_name Vines
 extends Node2D
 
 const DEBUG: bool = true
