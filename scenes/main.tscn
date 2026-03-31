@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" path="res://ui/kill_counter.tscn" id="3_hud"]
 [ext_resource type="PackedScene" path="res://ui/xp_counter.tscn" id="4_xp_hud"]
 
+[ext_resource type="PackedScene" uid="uid://dp62k6r0r8b78" path="res://scenes/ability_vines_ui.tscn" id="5_vines_ui"]
+
 [node name="main" type="Node2D" unique_id=223823420]
 script = ExtResource("1_0xm2m")
 
@@ -13,6 +15,12 @@ script = ExtResource("1_0xm2m")
 [node name="KillCounter" parent="HUD" unique_id=210317253 instance=ExtResource("3_hud")]
 
 [node name="XPCounter" parent="HUD" unique_id=210317254 instance=ExtResource("4_xp_hud")]
+
+[node name="AbilityVinesUI" parent="HUD" instance=ExtResource("5_vines_ui")]
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 60.0
+offset_bottom = 120.0
 
 [node name="Player" parent="." unique_id=1595572744 instance=ExtResource("2_h2yge")]
 

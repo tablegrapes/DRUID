@@ -4,6 +4,8 @@ extends Node2D
 @onready var label: Label = $PauseMenu/CenterContainer/Label
 @onready var player: CharacterBody2D = $Player/CharacterBody2D
 
+@onready var ability_vines_ui: Control = $HUD/AbilityVinesUI
+
 var game_started: bool = false
 var player_dead: bool = false
 
@@ -17,6 +19,7 @@ func _ready() -> void:
 	get_tree().paused = true
 	
 	player.died.connect(_on_player_died)
+	player.level_up.connect(ability_vines_ui._on_level_up)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):

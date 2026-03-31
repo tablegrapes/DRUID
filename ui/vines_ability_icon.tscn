@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://3dup5vg1xqw7"]
+
+[ext_resource type="Script" path="res://ui/vines_ability_icon.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bj5jsogk03vty" path="res://assets/generated/entangling_vines_frame_0_1774819386.png" id="2_texture"]
+
+[node name="VinesAbilityIcon" type="Control" unique_id=1986780811]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=535014128]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -80.0
+offset_right = 32.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Entangling Vines"
+texture = ExtResource("2_texture")
+stretch_mode = 5
