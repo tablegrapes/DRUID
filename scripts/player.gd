@@ -17,12 +17,14 @@ signal level_up(new_level: int)
 @export var health_bar_scene: PackedScene
 @export var vines_scene: PackedScene
 @export var vines_cast_time: float = 0.5
+@export var vines_cooldown_duration: float = 10.0
 
 var level: int = 1
 var experience: int = 0
 var experience_to_next_level: int = 10
 
 var is_casting: bool = false
+var vines_cooldown_remaining: float = 0.0
 var health_bar
 var next_spawn_count: int = 5
 var is_spawning_wave: bool = false
@@ -104,6 +106,9 @@ func _physics_process(delta):
 	# Move the character with collision
 	move_and_slide()  # velocity is read from the CharacterBody2D.velocity property
 
+	if vines_cooldown_remaining > 0.0:
+		vines_cooldown_remaining = max(vines_cooldown_remaining - delta, 0.0)
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cast_ability"):
 		spawn_mushroom()
@@ -155,7 +160,7 @@ func spawn_mushroom():
 	is_casting = false
 
 func cast_entangling_vines():
-	if is_casting:
+	if is_casting or vines_cooldown_remaining > 0.0:
 		return
 	
 	is_casting = true
@@ -174,6 +179,7 @@ func cast_entangling_vines():
 		vines.global_position = global_position
 		get_parent().add_child(vines)
 	
+	vines_cooldown_remaining = vines_cooldown_duration
 	is_casting = false
 
 func spawn_villager():
