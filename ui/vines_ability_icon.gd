@@ -59,4 +59,8 @@ func _update_tooltip(player: Node) -> void:
 	if z_cast_time == null:
 		z_cast_time = 0.5
 	
-	texture_rect.tooltip_text = "-- Entangling Vines -- \nGrasping vines sprout from all around the Druid. \nEnemies caught in the vines will be unable to move for %s seconds. \nThe vines last for %s seconds. \nCast Time: %s seconds" % [str(x_snare_duration), str(y_lifetime), str(z_cast_time)]
+	var cd = player.get("vines_cooldown_duration")
+	if cd == null:
+		cd = 10.0
+	
+	texture_rect.tooltip_text = "-- Entangling Vines -- \nGrasping vines sprout from all around the Druid. \nEnemies caught in the vines will be unable to move for %s seconds. \nThe vines last for %s seconds. \nCast Time: %s seconds \nCooldown: %s seconds" % [str(x_snare_duration), str(y_lifetime), str(z_cast_time), str(cd)],

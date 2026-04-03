@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3dup5vg1xqw7"]
 
-[ext_resource type="Script" path="res://ui/vines_ability_icon.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bgxc17cjgyqwo" path="res://ui/vines_ability_icon.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bj5jsogk03vty" path="res://assets/generated/entangling_vines_frame_0_1774819386.png" id="2_texture"]
 
 [node name="VinesAbilityIcon" type="Control" unique_id=1986780811]
